@@ -1,0 +1,9 @@
+<div *ngIf="authentication">
+  <h1>logged In</h1>
+  <test-root></test-root>
+</div>
+
+<div *ngIf="!authentication">
+  <h1>Sorryy not logged in</h1>
+  <button (click)="clear()">back</button>
+</div>
