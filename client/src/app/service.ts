@@ -1,5 +1,6 @@
 import {Injectable, OnInit} from "@angular/core";
 import {Headers, Http, RequestOptions} from "@angular/http";
+import {UserModel} from "./user.model";
 /**
  * Created by bishal on 5/21/17.
  */
@@ -54,4 +55,18 @@ export class Login implements OnInit{
       return true;
     }
   }
+
+  createUser(user : UserModel){
+    console.log(user);
+    this.headers =new Headers();
+    this.headers.append("Authorization", "Basic " + localStorage.getItem('token'));
+    this.authentication(localStorage.getItem('token'));
+    console.log(this.headers.values());
+    let options = new RequestOptions({headers: this.headers});
+    this.http.post('http://localhost:9001/signUps',user,options).subscribe(
+      data => { console.log(data); },
+      err => { console.log(err);}
+    );
+  }
+
 }

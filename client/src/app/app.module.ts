@@ -9,13 +9,15 @@ import {TestComponent} from "./test.component";
 import {LinktestComponent} from "./linktest.component";
 import {routing} from "./app.routing";
 import {LoginDialogComponent} from "./login.component";
+import {SignUpComponent} from "./signup.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginDialogComponent,
     TestComponent,
-    LinktestComponent
+    LinktestComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

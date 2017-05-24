@@ -24,12 +24,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //                .antMatchers("/api").hasRole("ADMIN")
                 .antMatchers("/api").hasRole("ADMIN")
                 .antMatchers("/login").hasRole("ADMIN")
+                .antMatchers("/signUps").permitAll()
                 .anyRequest().permitAll()
                 .and()
                 .httpBasic()
                 .and()
                 .csrf().disable();
     }
-
-
 }
