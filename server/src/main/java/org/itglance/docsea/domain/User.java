@@ -7,18 +7,15 @@ import java.util.Set;
  * Created by bishal on 5/23/17.
  */
 @Entity
-public class User
+public class UserDTO
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
     private Long id;
     private String name;
     private String password;
+    private Integer userType;
 
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "Role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private Set<Role> roles;
 
     public Long getId() {
         return id;
@@ -44,13 +41,13 @@ public class User
         this.password = password;
     }
 
-//    public Set<Role> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(Set<Role> roles) {
-//        this.roles = roles;
-//    }
+    public Integer getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
 
     @Override
     public String toString() {
@@ -58,7 +55,7 @@ public class User
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
-//                ", roles=" + roles +
+                ", userType=" + userType +
                 '}';
     }
 }
