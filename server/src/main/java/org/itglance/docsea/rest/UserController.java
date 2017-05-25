@@ -1,5 +1,7 @@
 package org.itglance.docsea.rest;
 
+import org.itglance.docsea.domain.User;
+import org.itglance.docsea.repository.UserRepository;
 import org.itglance.docsea.service.UserService;
 import org.itglance.docsea.service.dto.UserDTO;
 import org.springframework.http.HttpStatus;
@@ -16,8 +18,9 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private UserService userService;
+    private UserRepository userRepository;
 //
-    public UserController(UserService userService){}
+    public UserController(UserService userService,UserRepository userRepository){}
 
     @PostMapping("/api")
     public ResponseEntity<?> abc(){
@@ -34,7 +37,11 @@ public class UserController {
     @PostMapping("/signUps")
     public ResponseEntity<?> RegisterUser(@RequestBody UserDTO userDTO){
         System.out.println("signup controller");
-        userService.save(userDTO);
+        User user = new User();
+        user.setName(userDTO.getName());
+        user.setPassword(userDTO.getPassword());
+        user.setUserType(userDTO.getUserType());
+        userRepository.save(user);
         return new ResponseEntity<>("kei ayoo hola hai",HttpStatus.OK);
     }
 }

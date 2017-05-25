@@ -10,6 +10,7 @@ public class UserDTO {
     private Long id;
     private String name;
     private String password;
+    private Integer userType;
 
     public Long getId() {
         return id;
@@ -23,19 +24,22 @@ public class UserDTO {
         return password;
     }
 
+    public Integer getUserType() {
+        return userType;
+    }
 
     public UserDTO() {
     }
 
-    public UserDTO(Long id, String name, String password) {
+    public UserDTO(Long id, String name, String password, Integer userType) {
         this.id = id;
         this.name = name;
         this.password = password;
-//        this.roles = roles;
+        this.userType = userType;
     }
 
     public UserDTO(User user){
-        this(user.getId(),user.getName(),user.getPassword());
+        this(user.getId(),user.getName(),user.getPassword(),user.getUserType());
     }
 
     @Override
@@ -44,7 +48,7 @@ public class UserDTO {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
-//                ", roles=" + roles +
+                ", userType=" + userType +
                 '}';
     }
 }

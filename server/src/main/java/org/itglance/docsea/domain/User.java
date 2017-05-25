@@ -7,10 +7,10 @@ import java.util.Set;
  * Created by bishal on 5/23/17.
  */
 @Entity
-public class UserDTO
-{
+public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String password;

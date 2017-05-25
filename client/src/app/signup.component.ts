@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {UserModel} from "./user.model";
+import {User} from "./user.model";
 import {Login} from "./service";
 import {Router} from "@angular/router";
 /**
@@ -12,15 +12,16 @@ import {Router} from "@angular/router";
 
 export class SignUpComponent {
 
-  user: UserModel;
+  user: User;
 
   constructor(private login:Login,
               private router: Router){
-    this.user=new UserModel();
+    this.user=new User();
   }
 
   save(){
-      this.login.createUser(this.user);
+      this.login.createUser(this.user).subscribe(res=> console.log("data"),()=>console.log("errror"));
   }
 
 }
+// subscribe(res=> console.log("data"),()=>console.log("errror"))

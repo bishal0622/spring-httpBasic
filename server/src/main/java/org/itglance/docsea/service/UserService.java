@@ -1,7 +1,6 @@
 package org.itglance.docsea.service;
 import org.itglance.docsea.domain.User;
 import org.itglance.docsea.repository.UserRepository;
-import org.itglance.docsea.service.dto.UserDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -13,16 +12,14 @@ import java.util.Arrays;
 public class UserService {
 
     private UserRepository userRepository;
-//    private RoleRepository roleRepository;
 
-    public UserService(UserRepository userRepository){}
+    private SessionService sessionService;
 
-    public void save(UserDTO userDTO){
+    public UserService(UserRepository userRepository,SessionService sessionService){}
 
-        User user = new User();
-        user.setName(userDTO.getName());
-        userRepository.save(user);
+    public void saveMethod(User user){
+
+        sessionService.createSession(user);
     }
-
 
 }

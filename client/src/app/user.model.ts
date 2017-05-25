@@ -1,19 +1,22 @@
 // import {Role} from "./role.model";
-export class UserModel {
+export class User {
   public id?: any;
-  public username?: string;
+  public name?: string;
   public password?: string;
+  public userType?: number;
   // public role:Role;
 
   constructor(
     id ?: any,
-    username ?: string,
+    name ?: string,
     password ?: string,
+    userType ?: number
     // role ?: Role
   ) {
     this.id = id ? id:null;
-    this.username = username ? username : null;
+    this.name = name ? name : null;
     this.password = password ? password : null;
+    this.userType = userType ? userType :null;
     // this.role = role ? role : new Role();
   }
 }
