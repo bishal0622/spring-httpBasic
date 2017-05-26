@@ -1,12 +1,12 @@
 export class CredentialModel {
-  public username?: string;
+  public name?: string;
   public password?: string;
 
   constructor(
-              username ?: string,
+              name ?: string,
               password ?: string,
               ) {
-    this.username = username ? username : null;
+    this.name = name ? name : null;
     this.password = password ? password : null;
   }
 }

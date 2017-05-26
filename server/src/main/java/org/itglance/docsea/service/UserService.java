@@ -13,16 +13,10 @@ import java.util.Arrays;
 public class UserService {
 
     private UserRepository userRepository;
-//    private RoleRepository roleRepository;
 
     public UserService(UserRepository userRepository){}
 
-    public void save(UserDTO userDTO){
 
-        User user = new User();
-        user.setName(userDTO.getName());
-        userRepository.save(user);
-    }
 
 
 }

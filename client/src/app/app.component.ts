@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   save(){
-    this.login.create(btoa(this.simpleObject.username+":"+this.simpleObject.password));
+    this.login.create(btoa(this.simpleObject.name+":"+this.simpleObject.password));
   }
 
 }

@@ -4,9 +4,9 @@
 //
 //   constructor(
 //     id?:any,
-//     username ?: string,
+//     name ?: string,
 //   ) {
 //     this.id = id ? id :null;
-//     this.role = username ? username : null;
+//     this.role = name ? name : null;
 //   }
 // }

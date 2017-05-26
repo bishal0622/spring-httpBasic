@@ -58,15 +58,17 @@ export class Login implements OnInit{
 
   createUser(user : UserModel){
     console.log(user);
-    this.headers =new Headers();
-    this.headers.append("Authorization", "Basic " + localStorage.getItem('token'));
-    this.authentication(localStorage.getItem('token'));
-    console.log(this.headers.values());
-    let options = new RequestOptions({headers: this.headers});
-    this.http.post('http://localhost:9001/signUps',user,options).subscribe(
-      data => { console.log(data); },
-      err => { console.log(err);}
-    );
+    // this.headers =new Headers();
+    // this.headers.append("Authorization", "Basic " + localStorage.getItem('token'));
+    // this.authentication(localStorage.getItem('token'));
+    // console.log(this.headers.values());
+    // let options = new RequestOptions({headers: this.headers});
+    // this.http.post('http://localhost:9001/signUps',user).subscribe(
+    //   data => { console.log(data); },
+    //   err => { console.log(err);}
+    // );
+
+    return this.http.post("http://localhost:9001/signUps",user).subscribe(res=> console.log(res));
   }
 
 }

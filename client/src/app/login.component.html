@@ -1,6 +1,6 @@
 <div style="padding: 5%">
   <form (ngSubmit)="save()">
-    <p><input type="text" name="username" [(ngModel)]="simpleObject.username" #username="ngModel" placeholder="Username or Email"></p>
+    <p><input type="text" name="name" [(ngModel)]="simpleObject.name" #name="ngModel" placeholder="name or Email"></p>
     <p><input type="password" name="password" [(ngModel)]="simpleObject.password" #password="ngModel" value="" placeholder="Password"></p>
     <p class="submit"><input type="submit" ></p>
   </form>
