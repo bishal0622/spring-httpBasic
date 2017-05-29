@@ -1,7 +1,9 @@
 package org.itglance.docsea.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -43,4 +45,5 @@ public class SimpleCorsFilter implements Filter {
     @Override
     public void destroy() {
     }
+
 }

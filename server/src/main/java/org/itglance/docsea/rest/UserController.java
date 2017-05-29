@@ -1,50 +1,50 @@
 package org.itglance.docsea.rest;
 
-import org.itglance.docsea.domain.User;
+import org.itglance.docsea.domain.Users;
 import org.itglance.docsea.repository.UserRepository;
-import org.itglance.docsea.service.UserService;
-import org.itglance.docsea.service.dto.UserDTO;
+import org.itglance.docsea.service.dto.UsersDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 /**
- * Created by bishal on 5/21/17.
+ * Created by bishal on 5/26/17.
  */
-
-
-@CrossOrigin
+//@CrossOrigin
 @RestController
 public class UserController {
-
-    private UserService userService;
     private UserRepository userRepository;
 
-    public UserController(UserService userService,UserRepository userRepository){}
 
-    @PostMapping("/api")
-    public ResponseEntity<?> abc(){
-        System.out.println("logged in");
-        return new ResponseEntity<>("response ayo re",HttpStatus.OK);
+    public UserController(UserRepository userRepository) {
+        this.userRepository=userRepository;
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<?> cde(){
-        System.out.println("chalyo re chalyo");
-        return new ResponseEntity<>("next link",HttpStatus.OK);
+    @PostMapping("/login")
+    public ResponseEntity<?> loginOperation() {
+        System.out.println("Response fro login");
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/signUps")
-    public ResponseEntity<?> RegisterUser(@RequestBody UserDTO userDTO) {
-        System.out.println("signup controller");
-        User user = new User();
-        user.setName("ram");
-        user.setPassword("syam");
-        System.out.println(user.toString());
+    @PostMapping("/signup")
+    public ResponseEntity<?> signupOperation(@RequestBody UsersDTO usersDTO) {
+        System.out.println(usersDTO);
 
-        userRepository.save(user);
+        Users users = new Users();
+        users.setName(usersDTO.getName());
+        users.setPassword(usersDTO.getPassword());
+        users.setEnabled(true);
+        users.setRole(usersDTO.getRole());
+        System.out.println(users);
+        userRepository.save(users);
 
-        return new ResponseEntity<User>(user,HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/testing")
+    public ResponseEntity<?> testing(){
+        System.out.println("TEsting for USer role");
+        return new ResponseEntity<Object>("User has role USer",HttpStatus.OK);
+    }
+
 }

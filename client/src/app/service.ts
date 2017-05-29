@@ -68,7 +68,7 @@ export class Login implements OnInit{
     //   err => { console.log(err);}
     // );
 
-    return this.http.post("http://localhost:9001/signUps",user).subscribe(res=> console.log(res));
+    return this.http.post("http://localhost:9001/signup",user).subscribe(res=> console.log(res));
   }
 
 }

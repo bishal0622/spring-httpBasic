@@ -1,22 +1,22 @@
 package org.itglance.docsea.domain;
 
-
 import javax.persistence.*;
 
 /**
- * Created by bishal on 5/23/17.
+ * Created by bishal on 5/26/17.
  */
 @Entity
-public class User
-{
+public class Users {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column
-    private String name;
-    @Column
-    private String password;
 
+    private String name;
+    private String password;
+    @OneToOne
+    private Role role;
+    private Boolean enabled;
 
     public Long getId() {
         return id;
@@ -42,12 +42,30 @@ public class User
         this.password = password;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
+        return "Users{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", enabled=" + enabled +
                 '}';
     }
 }
